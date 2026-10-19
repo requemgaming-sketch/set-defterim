@@ -47,3 +47,13 @@ Uygulama ücretli API kullanmaz. Supabase Free kotası ve düşük aktivitede du
 
 ## Demo
 ?demo=1 ile bellek içi örnek veriler açılır. Gerçek veritabanını değiştirmez, yenilemede sıfırlanır ve ekranda Demo etiketi gösterilir.
+## 19 Ekim 2026 — Kişisel günlük genişlemesi
+
+Üst menü: Bugün, Antrenman, Kariyer, İngilizce. Antrenman ekranı ve workouts tablosu korunmuştur.
+Yeni kayıtlar ayrı journal_entries tablosunda aynı Supabase hesabına bağlıdır. 202610190001_journal.sql ek migration'ı mevcut projeye uygulanmıştır. İlk gym migration'ını yeniden çalıştırmayın.
+
+Kariyer / İngilizce: Çalışma ekle, konu, tarih, süre, notlar, kod veya örnek/düzeltme, sonraki adım, tekrar işareti ve çalışma sonucu. Buluta kaydet düğmesiyle kaydedilir. Gym'deki otomatik kayıt akışı değişmemiştir. Kaydedilmeyen günlük taslağı kullanıcıya özel cihaz depolamasında tutulur; başka cihazlara aktarılmaz. Eşzamanlı düzenleme çakışırsa taslağı indirip Vazgeç üzerinden editörü kapatın, sayfayı yenileyip güncel kaydı açın ve değişikliklerinizi birleştirin.
+
+Arşivle kaydı silmez. Arşivi göster üzerinden açıp işareti kaldırarak geri alabilirsiniz. Günlük yedeği kariyer, İngilizce ve günlük kayıtlarını (arşiv dahil) JSON olarak dışa aktarır; gym yedeği Antrenman > Geçmiş içindedir.
+
+Bugün ekranında son kayıtlar, haftanın çalışma süresi, üç küçük hedef ve günlük notlar bulunur. Diğer ChatGPT sohbetleri otomatik içe aktarılmaz; ilgili özeti not alanına yapıştırabilirsiniz. Süre grafikleri beceri puanı veya dil seviyesi ölçmez.

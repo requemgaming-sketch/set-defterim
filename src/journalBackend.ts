@@ -1,0 +1,10 @@
+import type { SupabaseClient } from '@supabase/supabase-js';
+import { journalSchema,type Journal,type JournalEntry } from '../lib/journal';
+export interface JournalRepository {list():Promise<JournalEntry[]>;save(data:Journal,revision:number):Promise<JournalEntry>}
+export class JournalConflict extends Error {constructor(){super('Bu kayıt başka bir cihazda değişmiş. Taslağını indir; güncel kaydı açıp değişikliklerini birleştir.')}}
+export function journalRepository(client:SupabaseClient,userId:string):JournalRepository{
+ const convert=(r:any):JournalEntry=>({data:journalSchema.parse(r.data),revision:r.revision,updatedAt:r.updated_at});
+ return {async list(){const all:JournalEntry[]=[];for(let offset=0;;offset+=500){const {data,error}=await client.from('journal_entries').select('data,revision,updated_at').eq('user_id',userId).order('date',{ascending:false}).order('updated_at',{ascending:false}).order('id').range(offset,offset+499);if(error)throw new Error('Günlük kayıtları yüklenemedi. Bağlantını kontrol et ve yeniden dene.');all.push(...data.map(convert));if(data.length<500)return all;}},
+ async save(value,revision){const d=journalSchema.parse(value);const q=revision===0?client.from('journal_entries').insert({id:d.id,user_id:userId,date:d.date,data:d,revision:1}):client.from('journal_entries').update({date:d.date,data:d,revision:revision+1}).eq('user_id',userId).eq('id',d.id).eq('revision',revision);const {data,error}=await q.select('data,revision,updated_at').maybeSingle();if(error?.code==='23505'||(!error&&!data))throw new JournalConflict();if(error)throw new Error('Buluta kaydedilemedi. Taslağın burada duruyor; bağlantını kontrol edip tekrar dene.');return convert(data);}};
+}
+export function demoJournalRepository():JournalRepository{let rows:JournalEntry[]=[];return {async list(){return structuredClone(rows)},async save(data,revision){const old=rows.find(e=>e.data.id===data.id);if((old?.revision??0)!==revision)throw new JournalConflict();const saved={data:journalSchema.parse(data),revision:revision+1,updatedAt:new Date().toISOString()};rows=[saved,...rows.filter(e=>e.data.id!==data.id)];return structuredClone(saved)}}}

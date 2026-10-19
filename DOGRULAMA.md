@@ -11,3 +11,10 @@
 - PWA manifesti, ikonlar ve sürümlenmiş service worker üretildi. Tam çevrimdışı kullanım yok; kalıcı kayıt ve geçmişi yüklemek için internet gerekir.
 
 Gerçek kullanıcının egzersiz geçmişine test/dummy antrenman eklenmedi.
+
+## 19 Ekim 2026 güncellemesi
+- Gym kaynak bileşeni, repository'si ve önceki migration değiştirilmedi.
+- Veritabanında güncelleme öncesi ve sonrası 4 workout kaydı; tüm satırların sıralı içerik özeti aynı.
+- Yeni journal_entries tablosu için kendi kayıtlarını ekleme/okuma/güncelleme, eski revision reddi ve farklı kullanıcıya okuma/güncelleme engeli transaction içinde doğrulandı ve rollback edildi.
+- İki yeni test: tarih/süre/alan doğrulama ve arşiv/günlük/tarih sınırlarını ayıran öğrenme istatistikleri. Toplam 7 test geçti.
+- Demo arayüzünde kariyer ve İngilizce kaydı, sonraki adım, tekrar listesi, günlük hedef, düzenleme ve arşivde koruma doğrulandı. Test kayıtları gerçek hesaba eklenmedi.
