@@ -81,3 +81,29 @@
 .theme-today .life-review .secondary{border-radius:20px;background:#3b2d50}
 .theme-today .error{color:#ffd1d9;background:#492a3e;border-color:#ab6a88}
 @media(max-width:700px){.theme-today .heading{padding:22px 18px;flex-direction:column;border-radius:18px}.theme-today .life-stats{gap:8px}.theme-today .life-stats strong{padding:14px 10px;font-size:28px}.theme-today .life-stats small{font-size:12px}.theme-today .life-cards>.panel{padding-top:26px}}
+
+/* Reading and progress views inherit each journal's own palette. */
+.study-notes{line-height:1.8;overflow-wrap:anywhere;font-size:16px}
+.study-notes h4{font-size:20px;margin:28px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--accent)}
+.study-notes p{margin:10px 0;white-space:pre-wrap}
+.study-notes blockquote{margin:8px 0;padding:10px 16px;border-left:3px solid var(--accent);background:var(--field);border-radius:0 10px 10px 0}
+.study-notes code{font-family:monospace;background:var(--field);padding:2px 5px;border-radius:4px}
+.study-table{max-width:100%;overflow-x:auto;margin:14px 0}
+.study-table table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+.study-table th,.study-table td{border-bottom:1px solid var(--line);padding:12px;vertical-align:top;min-width:110px}
+.study-table th{background:var(--field);color:var(--accent)}
+.study-correction{border-left:3px solid #b16766;padding-left:12px}
+.study-correct{border-left:3px solid #6c9875;padding-left:12px}
+.study-preview{padding:20px;background:var(--paper);border:1px solid var(--line);border-radius:12px;min-width:0}
+.theme-english .journal-history{grid-template-columns:1fr}
+.theme-english .journal-entry{min-width:0}
+.theme-english .study-entry-notes>summary{font-weight:600;border-bottom:1px dashed var(--line)}
+.journal-chart{height:260px;width:100%;min-width:0;margin:18px 0 8px}
+.journal-progress{min-width:0}
+.journal-progress .section-heading{gap:16px}
+.journal-progress h2{margin:0}
+.journal-progress label{min-width:180px}
+.chart-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px}
+.chart-legend span{display:flex;align-items:center;gap:7px}
+.chart-legend i{width:10px;height:10px;border-radius:3px}
+@media(max-width:700px){.study-preview{padding:12px}.study-notes h4{font-size:18px}.journal-chart{height:230px}.journal-progress .section-heading{align-items:stretch;flex-direction:column}.study-table th,.study-table td{padding:9px}}
