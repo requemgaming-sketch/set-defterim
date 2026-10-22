@@ -7,6 +7,12 @@ export default function StudyNotes({text}:{text:string}){
  for(let i=0;i<lines.length;i++){
   const line=lines[i].trim().replace(/\\$/,'');
   if(!line)continue;
+  if(line.includes('\t')){
+   const rows:string[][]=[];
+   while(i<lines.length&&lines[i].includes('\t')){rows.push(lines[i].split('\t').map(v=>v.trim()));i++}i--;
+   const [heads,...body]=rows;
+   blocks.push(<div className="study-table" key={i}><table><thead><tr>{heads.map((h,j)=><th key={j}>{inline(h)}</th>)}</tr></thead><tbody>{body.map((r,j)=><tr key={j}>{r.map((c,k)=><td key={k}>{inline(c)}</td>)}</tr>)}</tbody></table></div>);continue;
+  }
   if(line.startsWith('|')&&/^\|[\s:|-]+\|$/.test((lines[i+1]||'').trim())){
    const cells=(s:string)=>s.trim().replace(/^\||\|$/g,'').split('|').map(v=>v.trim());
    const heads=cells(line),rows:string[][]=[];i+=2;

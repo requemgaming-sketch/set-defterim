@@ -107,3 +107,110 @@
 .chart-legend span{display:flex;align-items:center;gap:7px}
 .chart-legend i{width:10px;height:10px;border-radius:3px}
 @media(max-width:700px){.study-preview{padding:12px}.study-notes h4{font-size:18px}.journal-chart{height:230px}.journal-progress .section-heading{align-items:stretch;flex-direction:column}.study-table th,.study-table td{padding:9px}}
+
+/* Navigation and reading ergonomics shared across the four themes. */
+.life-nav{position:sticky;top:0;z-index:30;margin-top:0;padding-top:12px;padding-bottom:12px;background:var(--paper,#101719);border-bottom:1px solid var(--line,#314044)}
+.life-nav button{min-height:46px}
+.journal-app button,.journal-app summary{touch-action:manipulation}
+.journal-app [id]{scroll-margin-top:100px}
+.section-shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}
+.draft-reminder{max-width:1080px;margin:14px auto;padding:12px 18px;background:var(--surface,#192326);border:1px solid var(--line,#43585e);border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:14px}
+.editor-save-actions{position:sticky;bottom:8px;z-index:20;background:var(--surface);padding:12px;border:1px solid var(--line);border-radius:12px;box-shadow:0 4px 20px #0002}
+.life-editor{border-color:var(--accent)!important}
+.life-shell textarea{resize:vertical;line-height:1.7}
+.life-shell summary{min-height:44px}
+.history-tools{display:flex;align-items:end;gap:18px;flex-wrap:wrap}
+.history-tools>label:first-child{flex:1;min-width:200px}
+.history-toggle{display:flex;align-items:center;gap:9px;min-height:44px}
+.history-toggle input{width:20px;height:20px;accent-color:#9bdbc5}
+.history-tools button{min-height:44px}
+.chart-total{display:flex;align-items:baseline;gap:10px;margin:14px 0;color:var(--soft)}
+.chart-total strong{font-size:28px;color:var(--accent);font-variant-numeric:tabular-nums}
+.theme-gym .save-bar{position:sticky;bottom:8px;z-index:20;background:#192326;border:1px solid #43585e;border-radius:12px;padding:12px;box-shadow:0 4px 20px #0003}
+@media(max-width:700px){.life-nav{padding-top:8px;padding-bottom:8px}.life-nav button{min-height:56px}.draft-reminder{margin:12px;flex-wrap:wrap}.section-shortcuts{gap:8px}.section-shortcuts button{flex:1;min-width:130px;font-size:14px}.editor-save-actions{bottom:env(safe-area-inset-bottom,0px);gap:6px;padding:8px}.editor-save-actions .primary{flex:1;min-width:130px}.editor-save-actions button{min-height:44px;font-size:13px}.life-shell .heading{flex-wrap:wrap}.life-shell .heading>.secondary{min-height:44px}.theme-gym .save-bar{bottom:env(safe-area-inset-bottom,0px)}.history-tools{gap:12px}.history-tools>label:first-child{flex-basis:100%}.theme-gym .heading>.secondary span{display:inline;font-size:12px}.theme-gym .heading{flex-wrap:wrap}.theme-today .life-cards>.panel{padding:18px}.theme-today .life-cards h2{font-size:19px}.theme-today .life-cards .life-next{margin:10px 0;padding:10px}.theme-today .life-cards .ghost{min-height:44px}.life-shell .life-check{min-height:44px}}
+
+/* Compact layout: smaller spacing, with readable text and touch targets. */
+.journal-app{font-size:15px}
+.journal-app .shell{max-width:1120px;padding:18px 24px 60px}
+.journal-app .heading{margin:18px 0 16px;gap:12px}
+.journal-app h1,.journal-app.theme-english h1{font-size:28px;letter-spacing:-.6px}
+.journal-app h2{font-size:18px}
+.journal-app h3,.journal-app.theme-english .journal-entry h3{font-size:18px;line-height:1.4}
+.journal-app .panel{padding:17px;margin-bottom:12px}
+.journal-app .eyebrow{font-size:10px;letter-spacing:1.4px;margin-bottom:6px}
+.journal-app .muted{font-size:13px;line-height:1.5}
+.journal-app .primary,.journal-app .secondary,.journal-app .ghost{min-height:38px;padding:8px 12px;font-size:13px;gap:6px}
+.journal-app .life-nav{max-width:1120px;padding:7px 24px;gap:6px}
+.journal-app .life-nav button{min-height:42px;padding:8px 14px;font-size:13px;gap:7px}
+.journal-app .life-nav svg{width:16px;height:16px}
+.journal-app .section-shortcuts{margin-bottom:12px;gap:8px}
+.journal-app .life-next{padding:8px 12px;margin:10px 0;font-size:14px}
+.journal-app.theme-today .heading{padding:16px;border-radius:14px}
+.journal-app.theme-english .heading{padding-bottom:14px}
+.journal-app.theme-today .life-cards>.panel{padding:18px 16px 14px;border-radius:14px}
+.journal-app.theme-today .life-cards h2{font-size:18px}
+.journal-app .life-cards{gap:12px}
+.journal-app .life-stats{margin:10px 0;gap:14px}
+.journal-app .life-stats strong{font-size:25px}
+.journal-app.theme-today .life-stats strong{padding:12px 14px;font-size:26px;border-radius:10px}
+.journal-app .learning-resume h2{font-size:17px;line-height:1.45}
+.journal-app .learning-resume .panel{padding:14px 16px}
+.journal-app .learning-resume .life-next{margin:6px 0 0}
+.journal-app .life-review{gap:6px}
+.journal-app .life-review button{font-size:12px;text-align:left;justify-content:flex-start;white-space:normal}
+.journal-app .journal-history{gap:12px;margin-top:12px}
+.journal-app.theme-english .journal-entry{padding:16px;background-image:none;border-top-width:2px}
+.journal-app.theme-english .journal-entry .section-heading{display:flex;align-items:flex-start}
+.journal-app.theme-english .journal-entry .section-heading button{margin:0;flex-shrink:0}
+.journal-app .ledger-row{padding:14px;gap:14px}
+.journal-app .ledger-time{font-size:18px}
+.journal-app .chart-total{margin:8px 0;font-size:13px}
+.journal-app .chart-total strong{font-size:22px}
+.journal-app .journal-chart{height:200px;margin:10px 0 6px}
+.journal-app #learning-chart{margin-top:20px}
+.journal-app .brand{padding-bottom:14px;gap:10px}
+.journal-app .brand-icon{width:34px;height:34px;border-radius:10px}
+.journal-app .brand strong{font-size:14px}
+.journal-app .brand small{font-size:11px}
+.journal-app .main-tabs,.journal-app .main-tabs [role=tab]{height:46px!important}
+.journal-app .main-tabs [role=tab]{font-size:13px}
+.journal-app .workspace{gap:16px;grid-template-columns:minmax(0,1fr) 245px}
+.journal-app .big-number{font-size:40px;padding:8px 0 14px;letter-spacing:-1px}
+.journal-app .summary-row{padding:9px 0;font-size:13px}
+.journal-app .week-dots{margin-top:12px}
+.journal-app .exercise{margin-top:16px;padding-top:14px}
+.journal-app .previous{padding:8px 10px;margin:9px 0;font-size:12px}
+.journal-app .set-grid{margin-bottom:7px}
+.journal-app .split-chips{margin:12px 0;gap:5px}
+.journal-app .split-chips button{padding:6px 10px}
+.journal-app .form-grid,.journal-app .life-form-grid,.journal-app .life-filters{gap:12px}
+.journal-app .life-editor fieldset{gap:12px}
+.journal-app .life-shell textarea{line-height:1.55}
+.journal-app .exercise .section-heading{flex-wrap:wrap;gap:6px}
+.exercise-tools{display:flex;align-items:center;gap:3px;margin-left:auto}
+.journal-app .exercise-tools button{padding:6px;min-width:36px;min-height:36px}
+.exercise-order-hint{margin-top:8px}
+.study-notebook{margin-top:12px}
+.notebook-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.topic-cards{display:grid;gap:7px}
+.journal-app .topic-card{border:1px solid var(--line);border-radius:8px;padding:0;background:var(--field)}
+.journal-app .topic-card summary{padding:10px 12px;font-weight:600;font-size:14px;min-height:42px}
+.topic-card>.study-notes{padding:0 14px 12px}
+.journal-app .study-notes{font-size:14px;line-height:1.6}
+.journal-app .study-notes p{margin:7px 0}
+.journal-app .study-notes blockquote{padding:6px 10px;margin:5px 0}
+.journal-app .study-table{margin:10px 0}
+.journal-app .study-table td,.journal-app .study-table th{padding:8px 10px;font-size:13px}
+.recall-card{padding:14px;background:var(--field);border:1px solid var(--line);border-radius:10px}
+.recall-card h4{font-size:17px;margin:6px 0}
+.recall-card>.muted{margin:8px 0}
+.recall-navigation{display:flex;justify-content:space-between;gap:8px;margin-top:12px}
+.note-composer{border:1px solid var(--line);border-radius:8px;padding:0 12px 10px;background:var(--field)}
+.composer-fields{display:grid;gap:10px;margin-top:10px}
+.journal-app .note-composer .life-form-grid{grid-template-columns:1fr 1fr}
+@media(max-width:700px){
+ .journal-app .shell{padding:12px 12px 40px}.journal-app h1,.journal-app.theme-english h1{font-size:24px}.journal-app .heading{margin:12px 0}.journal-app .panel,.journal-app.theme-english .journal-entry{padding:13px}
+ .journal-app .life-nav{padding:6px 10px}.journal-app .life-nav button{min-height:44px;flex-direction:row;padding:6px 4px;font-size:11px;gap:4px}.journal-app .life-nav svg{width:14px;height:14px}
+ .journal-app .workspace{display:block}.journal-app .primary,.journal-app .secondary,.journal-app .ghost{min-height:44px}.journal-app .exercise-tools button{min-width:40px;min-height:44px}.journal-app .exercise h3{font-size:16px}.journal-app .section-shortcuts button{min-width:120px;font-size:12px}.journal-app .journal-chart{height:180px}
+ .journal-app .life-form-grid,.journal-app .life-filters,.journal-app .note-composer .life-form-grid{grid-template-columns:1fr}.journal-app .life-stats{gap:8px}.journal-app.theme-today .life-stats strong{padding:10px;font-size:23px}.journal-app.theme-today .life-cards>.panel{padding:14px}.journal-app .summary-column{gap:8px}.journal-app .summary-column .panel{padding:12px}.journal-app .big-number{font-size:32px}.journal-app .study-notes{font-size:14px}.journal-app .life-shell input,.journal-app .life-shell textarea,.journal-app .life-shell select{font-size:16px;padding:9px 10px}.journal-app .topic-card summary{min-height:44px}.journal-app .editor-save-actions{padding:6px}.journal-app .editor-save-actions button{font-size:12px;padding:6px 8px}.journal-app .draft-reminder{font-size:12px;padding:10px;margin:10px 12px}.journal-app [id]{scroll-margin-top:72px}
+}
