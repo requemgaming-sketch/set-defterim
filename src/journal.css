@@ -214,3 +214,11 @@
  .journal-app .workspace{display:block}.journal-app .primary,.journal-app .secondary,.journal-app .ghost{min-height:44px}.journal-app .exercise-tools button{min-width:40px;min-height:44px}.journal-app .exercise h3{font-size:16px}.journal-app .section-shortcuts button{min-width:120px;font-size:12px}.journal-app .journal-chart{height:180px}
  .journal-app .life-form-grid,.journal-app .life-filters,.journal-app .note-composer .life-form-grid{grid-template-columns:1fr}.journal-app .life-stats{gap:8px}.journal-app.theme-today .life-stats strong{padding:10px;font-size:23px}.journal-app.theme-today .life-cards>.panel{padding:14px}.journal-app .summary-column{gap:8px}.journal-app .summary-column .panel{padding:12px}.journal-app .big-number{font-size:32px}.journal-app .study-notes{font-size:14px}.journal-app .life-shell input,.journal-app .life-shell textarea,.journal-app .life-shell select{font-size:16px;padding:9px 10px}.journal-app .topic-card summary{min-height:44px}.journal-app .editor-save-actions{padding:6px}.journal-app .editor-save-actions button{font-size:12px;padding:6px 8px}.journal-app .draft-reminder{font-size:12px;padding:10px;margin:10px 12px}.journal-app [id]{scroll-margin-top:72px}
 }
+/* Each journal area is a small workspace instead of one long page. */
+.journal-app .subpage-tabs{display:flex;width:100%;height:auto;gap:4px;padding:4px;margin:0 0 18px;background:var(--field);border:1px solid var(--line);border-radius:10px}
+.journal-app .subpage-tabs [role=tab]{flex:1;min-width:0;min-height:44px;height:auto;white-space:normal;text-align:center;padding:8px 10px;font-size:13px;line-height:1.35;color:var(--soft);border:1px solid transparent;border-radius:7px;background:transparent;box-shadow:none}
+.journal-app .subpage-tabs [role=tab][data-state=active]{background:var(--surface);color:var(--accent);border-color:var(--line);font-weight:700;box-shadow:0 1px 3px #00000012}
+.journal-app .subpage-tabs [role=tab]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.journal-app .journal-subpages>[role=tabpanel]{margin-top:0;min-width:0}
+.journal-app .editor-back{margin-bottom:12px}
+@media(max-width:700px){.journal-app .subpage-tabs{gap:2px;margin-bottom:14px}.journal-app .subpage-tabs [role=tab]{padding:8px 5px;font-size:12px}}
